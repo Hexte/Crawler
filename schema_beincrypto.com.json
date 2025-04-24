@@ -1,0 +1,24 @@
+{
+	"name": "beincrypto article",
+	"baseSelector": ".flex.w-full.flex-col.h-auto.card",
+	"fields": [
+	
+	{
+		"name": "title",
+		"selector": ".h-full.s2.s2--medium.mb-2>a",
+		"type": "text"
+	},
+	{
+		"name": "link",
+		"selector": ".h-full.s2.s2--medium.mb-2>a",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".date",
+		"type": "attribute",
+		"attribute": "datetime"
+	}
+	]
+}

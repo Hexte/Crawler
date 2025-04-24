@@ -1,0 +1,23 @@
+{
+	"name": "coindesk article",
+	"baseSelector": ".flex.gap-4.false",
+	"fields": [
+	
+	{
+		"name": "title",
+		"selector": ".text-color-charcoal-900",
+		"type": "text"
+	},
+	{
+		"name": "link",
+		"selector": ".text-color-charcoal-900",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".font-metadata.text-color-charcoal-600",
+		"type": "text"
+	}
+	]
+}
