@@ -1,0 +1,23 @@
+{
+	"name": "cryptonews article",
+	"baseSelector": ".archive-template-latest-news__wrap",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".archive-template-latest-news__title",
+		"type": "text"
+	},
+	{
+		"name": "link",
+		"selector": ".archive-template-latest-news",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".archive-template-latest-news__time",
+		"type": "attribute",
+		"attribute": "data-utctime"
+	}
+	]
+}
