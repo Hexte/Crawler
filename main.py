@@ -10,18 +10,15 @@ async def main():
     scrape_targets = [
         {
             "name": "cryptonews",
-            "url": "https://cryptonews.com/news/",
-            "schemaName": "schema_cryptonews.com.json"
+            "url": "https://cryptonews.com/news/"
         },
         {
             "name": "coindesk",
-            "url": "https://www.coindesk.com/latest-crypto-news/",
-            "schemaName": "schema_coindesk.com.json"
+            "url": "https://www.coindesk.com/latest-crypto-news/"
         },
         {
             "name": "beincrypto",
-            "url": "https://beincrypto.com/news/",
-            "schemaName": "schema_beincrypto.com.json"
+            "url": "https://beincrypto.com/news/"
         },
         ]
 
@@ -29,13 +26,13 @@ async def main():
     print()
     # print(scrape_targets)
     for i in range(scrape_targets.__len__()):
-        tasks.append(scrapeArticles(scrape_targets[i]["name"],scrape_targets[i]["url"], scrape_targets[i]["schemaName"]))
+        tasks.append(scrapeArticles(scrape_targets[i]["name"],scrape_targets[i]["url"]))
     await asyncio.gather(*tasks)
 
 
-async def scrapeArticles(name, url, schemaName):
+async def scrapeArticles(name, url):
     async with AsyncWebCrawler() as crawler:
-        with open(schemaName, 'r', encoding='utf-8') as file:
+        with open("mainSchemas/schema_" + name + ".json", 'r', encoding='utf-8') as file:
             schema = json.load(file)
             print(schema)
         extraction_strategy = JsonCssExtractionStrategy(schema, verbose=True)
@@ -52,9 +49,7 @@ async def scrapeArticles(name, url, schemaName):
         )
 
         data = json.loads(result.extracted_content)
-        # print(f"Extracted {len(data)} entries")
-        # print(json.dumps(data, indent=2))
-        with open('outputs/output_' + name, 'w') as f:
+        with open('outputs/output_' + name + ".json", 'w') as f:
             f.write(json.dumps(data, indent=2))
 
 if __name__ == "__main__":
