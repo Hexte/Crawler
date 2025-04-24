@@ -1,0 +1,33 @@
+{
+	"name": "cryptonews article",
+	"baseSelector": "article>div>div:first-child",
+	"fields": [
+	{
+		"name": "title",
+		"selector": "header>h1",
+		"type": "text"
+	},
+	{
+		"name": "synopsys",
+		"selector": ".in-brief-block__row:first-Child",
+		"type": "text"
+	},
+	{
+		"name": "content",
+		"selector": ".entry-content-inner>p",
+		"type": "list",
+		"fields": [
+		{
+			"name": "paragraphs",
+			"selector": "p",
+			"type": "text"
+		},
+		{
+			"name": "subtitle",
+			"selector": "h2",
+			"type": "text"
+		}
+		]
+	}
+	]
+}

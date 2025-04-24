@@ -1,0 +1,16 @@
+{
+	"name": "cryptonews article",
+	"baseSelector": "div.article-single__content.category_contents_details",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".article-single__content>h1",
+		"type": "text"
+	},
+	{
+		"name": "synopsys",
+		"selector": ".single-post__subheader",
+		"type": "text"
+	}
+	]
+}
