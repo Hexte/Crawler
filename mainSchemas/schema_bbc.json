@@ -1,0 +1,23 @@
+{
+	"name": "bbc article",
+	"baseSelector": ".sc-666b6d83-0.sc-c5803051-1.cLBIlS.ethsyB",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".sc-9d830f2a-3",
+		"type": "text"
+	},
+	{
+		"name": "link",
+		"selector": ".sc-8a623a54-0",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".sc-ac6bc755-1",
+		"type": "attribute",
+		"attribute": "text"
+	}
+	]
+}

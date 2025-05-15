@@ -1,0 +1,23 @@
+{
+	"name": "coinmarketcap article",
+	"baseSelector": ".infinite-scroll-component",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".sc-71024e3e-0.fXOSQz.cmc-link",
+		"type": "text"
+	},
+	{
+		"name": "link",
+		"selector": ".sc-71024e3e-0.fXOSQz.cmc-link",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".sc-71024e3e-0.fdCzQf",
+		"type": "attribute",
+		"attribute": "data-utctime"
+	}
+	]
+}

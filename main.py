@@ -22,6 +22,26 @@ async def main():
             "name": "beincrypto",
             "url": "https://beincrypto.com/news/"
         },
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/headlines/news/"
+        },
+        {
+            "name": "yahoo",
+            "url": "https://finance.yahoo.com/topic/crypto/"
+        },
+        {
+            "name": "bbc",
+            "url": "https://www.bbc.com/news/topics/cyd7z4rvdm3t/"
+        },
+        {
+            "name": "bloomberg",
+            "url": "https://www.bloomberg.com/crypto"
+        },
+        {
+            "name": "cryptoslate",
+            "url": "https://cryptoslate.com/news/"
+        }
         ]
 
     for i in range(scrape_targets.__len__()):

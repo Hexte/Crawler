@@ -1,0 +1,23 @@
+{
+	"name": "cryptoslate article",
+	"baseSelector": ".list-post-cards",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".list-card>article>a",
+		"type": "attribute",
+		"attribute": "title"
+	},
+	{
+		"name": "link",
+		"selector": ".list-card>article>a",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".post-meta:last-child",
+		"type": "text"
+	}
+	]
+}

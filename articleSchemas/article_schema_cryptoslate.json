@@ -1,0 +1,21 @@
+{
+	"name": "cryptoslate article",
+	"baseSelector": ".post-container",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".post-title",
+		"type": "text"
+	},
+	{
+		"name": "synopsys",
+		"selector": ".post-subheading",
+		"type": "text"
+	},
+	{
+		"name": "content",
+		"selector": ".full-article",
+		"type": "text"
+	}
+	]
+}

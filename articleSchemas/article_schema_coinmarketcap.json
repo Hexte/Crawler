@@ -1,0 +1,21 @@
+{
+	"name": "cryptonews article",
+	"baseSelector": "div.hero",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".sc-21d469ac-7",
+		"type": "text"
+	},
+	{
+		"name": "synopsys",
+		"selector": ".sc-65e7f566-0:first-child",
+		"type": "text"
+	},
+	{
+		"name": "content",
+		"selector": "article",
+		"type": "text"
+	}
+	]
+}

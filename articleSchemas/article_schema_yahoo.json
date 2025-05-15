@@ -1,0 +1,16 @@
+{
+	"name": "yahoo article",
+	"baseSelector": "gridLayout",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".cover-title",
+		"type": "text"
+	},
+	{
+		"name": "synopsys",
+		"selector": ".article-wrap",
+		"type": "text"
+	}
+	]
+}

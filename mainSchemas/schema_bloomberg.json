@@ -1,0 +1,23 @@
+{
+	"name": "bloomberg article",
+	"baseSelector": ".gridModule_gridModule___HgOM",
+	"fields": [
+	{
+		"name": "title",
+		"selector": ".Headline_phoenix__Dvz0u>span",
+		"type": "text"
+	},
+	{
+		"name": "link",
+		"selector": ".LineupContentArchive_storyLink__Umeq4",
+		"type": "attribute",
+		"attribute": "href"
+	},
+	{
+		"name": "time",
+		"selector": ".LineupContentArchive_itemTimestamp__ZdUt5>time",
+		"type": "attribute",
+		"attribute": "text"
+	}
+	]
+}
