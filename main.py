@@ -1,4 +1,6 @@
 import asyncio
+import time
+
 from crawl4ai import *
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.scorers import KeywordRelevanceScorer
@@ -8,51 +10,53 @@ from kafka import KafkaProducer
 import os
 
 async def main():
-    tasks = []
-    scrape_targets = [
-        {
-            "name": "cryptonews",
-            "url": "https://cryptonews.com/news/"
-        },
-        {
-            "name": "coindesk",
-            "url": "https://www.coindesk.com/latest-crypto-news/"
-        },
-        {
-            "name": "beincrypto",
-            "url": "https://beincrypto.com/news/"
-        },
-        {
-            "name": "coinmarketcap",
-            "url": "https://coinmarketcap.com/headlines/news/"
-        },
-        {
-            "name": "yahoo",
-            "url": "https://finance.yahoo.com/topic/crypto/"
-        },
-        {
-            "name": "bbc",
-            "url": "https://www.bbc.com/news/topics/cyd7z4rvdm3t/"
-        },
-        {
-            "name": "bloomberg",
-            "url": "https://www.bloomberg.com/crypto"
-        },
-        {
-            "name": "cryptoslate",
-            "url": "https://cryptoslate.com/news/"
-        }
-        ]
+    while True:
+        tasks = []
+        scrape_targets = [
+            {
+                "name": "cryptonews",
+                "url": "https://cryptonews.com/news/"
+            },
+            {
+                "name": "coindesk",
+                "url": "https://www.coindesk.com/latest-crypto-news/"
+            },
+            {
+                "name": "beincrypto",
+                "url": "https://beincrypto.com/news/"
+            },
+            {
+                "name": "coinmarketcap",
+                "url": "https://coinmarketcap.com/headlines/news/"
+            },
+            {
+                "name": "yahoo",
+                "url": "https://finance.yahoo.com/topic/crypto/"
+            },
+            {
+                "name": "bbc",
+                "url": "https://www.bbc.com/news/topics/cyd7z4rvdm3t/"
+            },
+            {
+                "name": "bloomberg",
+                "url": "https://www.bloomberg.com/crypto"
+            },
+            {
+                "name": "cryptoslate",
+                "url": "https://cryptoslate.com/news/"
+            }
+            ]
 
-    for i in range(scrape_targets.__len__()):
-        tasks.append(scrapeForArticles(scrape_targets[i]["name"], scrape_targets[i]["url"]))
-    await asyncio.gather(*tasks)
-    tasks = []
-    for i in range(scrape_targets.__len__()):
-        tasks.append(scrapeArticles(scrape_targets[i]["name"]))
-    await asyncio.gather(*tasks)
+        for i in range(scrape_targets.__len__()):
+            tasks.append(scrapeForArticles(scrape_targets[i]["name"], scrape_targets[i]["url"]))
+        await asyncio.gather(*tasks)
+        tasks = []
+        for i in range(scrape_targets.__len__()):
+            tasks.append(scrapeArticles(scrape_targets[i]["name"]))
+        await asyncio.gather(*tasks)
 
-    sendScrapedToKafka("articles")
+        sendScrapedToKafka("articles")
+        time.sleep(1800)
 
 def sendScrapedToKafka(path):
     producer = KafkaProducer(
@@ -84,7 +88,6 @@ def sendScrapedToKafka(path):
                 print(f"Skipping {filename}: Invalid JSON format")
             except Exception as e:
                 print(f"Error processing {filename}: {str(e)}")
-
 
     producer.flush()
     producer.close()
@@ -155,4 +158,3 @@ async def scrapeArticles(name):
 
 if __name__ == "__main__":
     asyncio.run(main())
-    # asyncio.run(scrapeArticles("beincrypto","https://beincrypto.com/news/", "schema_beincrypto.com.json"))
